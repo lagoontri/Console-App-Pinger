@@ -1,0 +1,22 @@
+for (int i = 0; i < //BURAYA KAÇ ADET PİNG GÖNDERECEĞİMİZİ YAZIYORUZ MAKSİMUM 10000; i++)
+                {
+                    Console.Write("  ");
+                    try
+                    {
+                        Ping myPing = new Ping(); //PİNG GÖNERME AŞAMASI.
+                        PingReply reply = myPing.Send(c, 1000);
+                        if (reply != null)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("Status :  " + reply.Status + " \n  Time : " + reply.RoundtripTime.ToString() + " \n  Address : " + reply.Address);
+                            Console.Write("  ");
+                            Console.WriteLine(reply.ToString());
+                            Console.WriteLine("  Gonderilen: {0}", i); //KAÇ PİNG GÖNDERİLDİĞİ HAKKINDA BİLGİ.
+                        }
+                    }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("HATA: Zaman asimina ugradi."); //YANLIŞ SİTE GİRİLDİĞİNDE VEYA HTTP KISALTMASI İLE LİNK YAZDILDIĞINDA UYARI VERİR.
+                    }
+                }
